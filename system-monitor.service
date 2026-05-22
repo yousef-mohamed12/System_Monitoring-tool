@@ -1,0 +1,16 @@
+Unit]
+Description=Yousef Custom System Metrics Dashboard Monitor
+After=network.target
+
+[Service]
+# Run the script as your normal user so file permissions match your home directory
+User=yousef
+WorkingDirectory=/home/yousef/system_monitorr/monitoring
+ExecStart=/bin/bash /home/yousef/system_monitorr/monitoring/monit.sh
+
+# Automatically restart the service if it ever crashes
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
